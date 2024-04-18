@@ -38,3 +38,17 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 });
+
+function findMostRecentBook(books) {
+  return books.reduce(
+    (mostRecent, book) =>
+      new Date(book.published) > new Date(mostRecent.published)
+        ? book
+        : mostRecent,
+    books[0]
+  ); // Fixed comparison & initial value
+}
+
+function findIntersection(setA, setB) {
+  return new Set([...setA].filter((concept) => setB.has(concept))); // Use filter for intersection
+}
