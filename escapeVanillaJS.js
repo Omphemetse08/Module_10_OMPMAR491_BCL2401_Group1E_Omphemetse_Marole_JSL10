@@ -24,4 +24,17 @@ document.addEventListener("DOMContentLoaded", () => {
       commonConcepts
     ).join(", ")}`;
   });
+
+  // **Room 3 - Asynchronous Handling**
+  document.getElementById("solveRoom3").addEventListener("click", async () => {
+    // Made the function async
+    try {
+      const response = await fetch("directions.json");
+      const directions = await response.json();
+      const message = await navigateLabyrinth(directions);
+      document.getElementById("room3Result").textContent = message;
+    } catch (error) {
+      console.error("Error navigating labyrinth:", error);
+    }
+  });
 });
