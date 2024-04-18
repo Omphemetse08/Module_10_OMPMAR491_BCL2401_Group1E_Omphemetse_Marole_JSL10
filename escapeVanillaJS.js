@@ -10,4 +10,18 @@ document.addEventListener("DOMContentLoaded", () => {
         ).textContent = `The key to the next room is: ${mostRecentBook.title}`;
       });
   });
+
+  // **Room 2 - Missing async & Intersection**
+  document.getElementById("solveRoom2").addEventListener("click", () => {
+    const jsConcepts = new Set(["closure", "scope", "hoisting"]);
+    const reactConcepts = new Set(["components", "jsx", "hooks", "async"]); // Added 'async'
+    const commonConcepts = new Set(
+      [...jsConcepts].filter((concept) => reactConcepts.has(concept))
+    ); // Use filter for intersection
+    document.getElementById(
+      "room2Result"
+    ).textContent = `The code to unlock the door is: ${Array.from(
+      commonConcepts
+    ).join(", ")}`;
+  });
 });
