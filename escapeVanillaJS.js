@@ -52,3 +52,11 @@ function findMostRecentBook(books) {
 function findIntersection(setA, setB) {
   return new Set([...setA].filter((concept) => setB.has(concept))); // Use filter for intersection
 }
+
+async function navigateLabyrinth(directions) {
+  for (let direction of directions) {
+    await new Promise((resolve) => setTimeout(resolve, 1000)); // Added await for delay
+    console.log(`Navigating: ${direction.step}`);
+  }
+  return "Congratulations! You've mastered the essentials of Vanilla JavaScript. Welcome to the world of React, where you'll build powerful and dynamic web applications. Let's dive in!";
+}
